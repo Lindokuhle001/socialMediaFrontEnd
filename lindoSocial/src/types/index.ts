@@ -7,13 +7,13 @@ export type State = {
   posts: Post[];
 };
 
-type User = {
+export type User = {
   id: string;
   firstName: string;
   lastName: string;
   occupation: string;
   location: string;
-  friends: string[];
+  friends?: string[];
   picturePath: string;
 };
 
