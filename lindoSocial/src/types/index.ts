@@ -1,5 +1,7 @@
+import { PaletteMode } from "@mui/material";
+
 export type State = {
-  mode: string;
+  mode: PaletteMode;
   user: User | null;
   token: null;
   posts: Post[];
@@ -11,7 +13,7 @@ type User = {
   lastName: string;
   occupation: string;
   location: string;
-  friends:string[],
+  friends: string[];
   picturePath: string;
 };
 
