@@ -14,6 +14,8 @@ export type User = {
   occupation: string;
   location: string;
   friends?: string[];
+  viewedProfile?: string;
+  impressions?: string;
   picturePath: string;
 };
 
@@ -27,4 +29,9 @@ type Post = {
   userPicturePath: string;
   likes: Map<User, Boolean>;
   comments: string[];
+};
+
+export type UserImage = {
+  image: string;
+  size: string;
 };
