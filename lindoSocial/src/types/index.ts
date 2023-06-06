@@ -19,7 +19,7 @@ export type User = {
   picturePath: string;
 };
 
-type Post = {
+export type Post = {
   userId: string;
   firstName: string;
   lastName: string;
