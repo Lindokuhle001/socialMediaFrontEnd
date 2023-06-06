@@ -14,8 +14,8 @@ import { useNavigate } from "react-router-dom";
 import { State, User } from "types";
 
 type widgetArgs = {
-  userId: string;
-  picturePath: string;
+  userId?: string;
+  picturePath?: string;
 };
 
 const UserWidget = ({ userId, picturePath }: widgetArgs) => {

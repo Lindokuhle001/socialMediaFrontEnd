@@ -1,25 +1,26 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import Friend from "../../components/friend";
-import WidgetWrapper from "components/widgetWrapper";
+import WidgetWrapper from "../../components/widgetWrapper";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setFriends } from "state";
-import { User,State } from "types";
+import { setFriends } from "../../state/index";
+import { State } from "types";
 
-const FriendListWidget = ({ id }:User) => {
+type FriendListWidgetProps = {
+  id?: string;
+};
+
+const FriendListWidget = ({ id }: FriendListWidgetProps) => {
   const dispatch = useDispatch();
   const { palette } = useTheme();
-  const token = useSelector((state:State) => state.token);
-  const friends = useSelector((state:State) => state.user?.friends);
+  const token = useSelector((state: State) => state.token);
+  const friends = useSelector((state: State) => state.user?.friends);
 
   const getFriends = async () => {
-    const response = await fetch(
-      `http://localhost:3001/users/${id}/friends`,
-      {
-        method: "GET",
-        headers: { Authorization: `Bearer ${token}` },
-      }
-    );
+    const response = await fetch(`http://localhost:3001/users/${id}/friends`, {
+      method: "GET",
+      headers: { Authorization: `Bearer ${token}` },
+    });
     const data = await response.json();
     dispatch(setFriends({ friends: data }));
   };
@@ -31,7 +32,7 @@ const FriendListWidget = ({ id }:User) => {
   return (
     <WidgetWrapper>
       <Typography
-  // @ts-ignore
+        // @ts-ignore
         color={palette.neutral.dark}
         variant="h5"
         fontWeight="500"
