@@ -13,7 +13,7 @@ export type User = {
   lastName: string;
   occupation: string;
   location: string;
-  friends?: string[];
+  friends?: User[];
   viewedProfile?: string;
   impressions?: string;
   picturePath: string;

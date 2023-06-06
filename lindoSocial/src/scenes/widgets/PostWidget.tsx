@@ -11,8 +11,20 @@ import {
   import { useState } from "react";
   import { useDispatch, useSelector } from "react-redux";
   import { setPost } from "state";
-  import {Post,State} from '../../types/index'
+  import {State, User} from '../../types/index'
   
+type PostWidgetProps = {
+    postId:string
+    postUserId:string
+    name:string
+    location: string;
+    description: string;
+    picturePath: string;
+    userPicturePath: string;
+    likes: Map<User, Boolean>;
+    comments: string[];
+}
+
   const PostWidget = ({
     postId,
     postUserId,
@@ -23,7 +35,7 @@ import {
     userPicturePath,
     likes,
     comments,
-  }:Post) => {
+  }:PostWidgetProps) => {
     const [isComments, setIsComments] = useState(false);
     const dispatch = useDispatch();
     const token = useSelector((state: State) => state.token);
