@@ -20,6 +20,7 @@ export type User = {
 };
 
 export type Post = {
+  id: string;
   userId: string;
   firstName: string;
   lastName: string;

@@ -10,7 +10,7 @@ import {
   import WidgetWrapper from "../../components/widgetWrapper";
   import { useState } from "react";
   import { useDispatch, useSelector } from "react-redux";
-  import { setPost } from "state";
+  import { setPost } from "../../state";
   import {State, User} from '../../types/index'
   
 type PostWidgetProps = {
@@ -79,7 +79,7 @@ type PostWidgetProps = {
             height="auto"
             alt="post"
             style={{ borderRadius: "0.75rem", marginTop: "0.75rem" }}
-            src={`http://localhost:3001/assets/${picturePath}`}
+            src={`http://localhost:3000/assets/${picturePath}`}
           />
         )}
         <FlexBetween mt="0.25rem">
