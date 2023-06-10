@@ -19,6 +19,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }: FriendProps) => {
   const navigate = useNavigate();
   const user = useSelector((state: State) => state.user);
   const id = user?.id;
+
   const token = useSelector((state: State) => state.token);
   const friends = useSelector((state: State) => state.user?.friends);
 
@@ -34,7 +35,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }: FriendProps) => {
 
   const patchFriend = async () => {
     const response = await fetch(
-      `http://localhost:3001/users/${id}/${friendId}`,
+      `http://localhost:3000/users/${id}/${friendId}`,
       {
         method: "PATCH",
         headers: {

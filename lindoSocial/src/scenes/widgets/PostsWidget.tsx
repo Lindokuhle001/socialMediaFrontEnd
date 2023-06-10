@@ -5,11 +5,11 @@ import PostWidget from "./PostWidget";
 import { State } from "types";
 
 type PostProps = {
-    userId?:string;
-    isProfile?:boolean
-}
+  userId?: string;
+  isProfile?: boolean;
+};
 
-const PostsWidget = ({ userId, isProfile = false }:PostProps) => {
+const PostsWidget = ({ userId, isProfile }: PostProps) => {
   const dispatch = useDispatch();
   const posts = useSelector((state: State) => state.posts);
   const token = useSelector((state: State) => state.token);
@@ -25,7 +25,7 @@ const PostsWidget = ({ userId, isProfile = false }:PostProps) => {
 
   const getUserPosts = async () => {
     const response = await fetch(
-      `http://localhost:3001/posts/${userId}/posts`,
+      `http://localhost:3000/posts/${userId}/posts`,
       {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },
