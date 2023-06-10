@@ -15,7 +15,7 @@ const PostsWidget = ({ userId, isProfile }: PostProps) => {
   const token = useSelector((state: State) => state.token);
 
   const getPosts = async () => {
-    const response = await fetch("http://localhost:3000/posts", {
+    const response = await fetch("https://lindosocial.onrender.com/posts", {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -25,7 +25,7 @@ const PostsWidget = ({ userId, isProfile }: PostProps) => {
 
   const getUserPosts = async () => {
     const response = await fetch(
-      `http://localhost:3000/posts/${userId}/posts`,
+      `https://lindosocial.onrender.com/posts/${userId}/posts`,
       {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },

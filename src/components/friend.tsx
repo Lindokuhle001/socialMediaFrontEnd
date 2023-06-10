@@ -35,7 +35,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }: FriendProps) => {
 
   const patchFriend = async () => {
     const response = await fetch(
-      `http://localhost:3000/users/${id}/${friendId}`,
+      `https://lindosocial.onrender.com/users/${id}/${friendId}`,
       {
         method: "PATCH",
         headers: {

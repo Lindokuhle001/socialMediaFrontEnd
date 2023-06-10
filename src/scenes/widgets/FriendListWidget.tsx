@@ -17,7 +17,7 @@ const FriendListWidget = ({ id }: FriendListWidgetProps) => {
   const friends = useSelector((state: State) => state.user?.friends);
 
   const getFriends = async () => {
-    const response = await fetch(`http://localhost:3000/users/${id}/friends`, {
+    const response = await fetch(`https://lindosocial.onrender.com/users/${id}/friends`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });
