@@ -41,9 +41,9 @@ const FriendListWidget = ({ id }: FriendListWidgetProps) => {
         Friend List
       </Typography>
       <Box display="flex" flexDirection="column" gap="1.5rem">
-        {friends?.map((friend) => (
+        {friends?.map((friend,index) => (
           <Friend
-            key={friend?.id}
+            key={friend?.id ?? index}
             friendId={friend?.id}
             name={`${friend?.firstName} ${friend?.lastName}`}
             subtitle={friend?.occupation}
