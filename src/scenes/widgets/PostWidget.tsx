@@ -49,7 +49,7 @@ const PostWidget = ({
   const main = palette.neutral.main;
   const primary = palette.primary.main;
 
-  const patchLike = async (postId:string) => {
+  const patchLike = async (postId: string) => {
     const response = await fetch(
       `https://lindosocial.onrender.com/posts/${postId}/like`,
       {
@@ -88,7 +88,7 @@ const PostWidget = ({
       <FlexBetween mt="0.25rem">
         <FlexBetween gap="1rem">
           <FlexBetween gap="0.3rem">
-            <IconButton onClick={()=> patchLike(postId)}>
+            <IconButton onClick={() => patchLike(postId)}>
               {isLiked ? (
                 <FavoriteOutlined sx={{ color: primary }} />
               ) : (
@@ -112,17 +112,18 @@ const PostWidget = ({
       </FlexBetween>
       {isComments && (
         <Box mt="0.5rem">
-          {comments.map((comment, index) => {
-            let id = `${comment}-${index}`;
-            return (
-              <Box key={id ?? index}>
-                <Divider />
-                <Typography sx={{ color: main, m: "0.5rem 0", pl: "1rem" }}>
-                  {comment}
-                </Typography>
-              </Box>
-            );
-          })}
+          {Array.isArray(comments) &&
+            comments.map((comment, index) => {
+              let id = `${comment}-${index}`;
+              return (
+                <Box key={id ?? index}>
+                  <Divider />
+                  <Typography sx={{ color: main, m: "0.5rem 0", pl: "1rem" }}>
+                    {comment}
+                  </Typography>
+                </Box>
+              );
+            })}
           <Divider />
         </Box>
       )}

@@ -41,25 +41,28 @@ const PostsWidget = ({ userId, isProfile }: PostProps) => {
     } else {
       getPosts();
     }
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
-      {posts.map(
-        ({
-          id,
-          userId,
-          firstName,
-          lastName,
-          description,
-          location,
-          picturePath,
-          userPicturePath,
-          likes,
-          comments,
-        },index) => (
+      {Array.isArray(posts) && posts.map(
+        (
+          {
+            id,
+            userId,
+            firstName,
+            lastName,
+            description,
+            location,
+            picturePath,
+            userPicturePath,
+            likes,
+            comments,
+          },
+          index
+        ) => (
           <PostWidget
-            key={id  ?? index}
+            key={id ?? index}
             postId={id}
             postUserId={userId}
             name={`${firstName} ${lastName}`}
